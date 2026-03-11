@@ -15,6 +15,12 @@
             color: #1a1a1a; 
             scroll-behavior: smooth;
             overflow-x: hidden;
+            /* 優化電腦版基礎字體大小 */
+            font-size: 16px;
+        }
+        
+        @media (min-width: 1024px) {
+            body { font-size: 18px; }
         }
         
         .gradient-text { 
@@ -55,7 +61,10 @@
             transform: translateY(0);
         }
 
-        section { padding: 60px 20px; position: relative; z-index: 10; }
+        section { padding: 80px 24px; position: relative; z-index: 10; }
+        @media (min-width: 1024px) {
+            section { padding: 120px 40px; }
+        }
         
         .video-card { 
             aspect-ratio: 9/16; 
@@ -74,14 +83,17 @@
         .video-card:hover img { transform: scale(1.08); }
 
         .avatar-container { 
-            width: 150px; 
-            height: 150px; 
+            width: 160px; 
+            height: 160px; 
             border-radius: 50%; 
             overflow: hidden; 
-            margin: 0 auto 24px; 
+            margin: 0 auto 32px; 
             background-color: #f0f0f0;
             border: 4px solid #fff;
             box-shadow: 0 10px 30px rgba(0,0,0,0.05);
+        }
+        @media (min-width: 1024px) {
+            .avatar-container { width: 200px; height: 200px; }
         }
         .avatar-container img { width: 100%; height: 100%; object-fit: cover; }
         
@@ -101,24 +113,25 @@
             50% { transform: translate(30px, 40px); }
         }
 
-        .nav-link { font-size: 0.75rem; font-weight: 600; letter-spacing: 0.05em; transition: color 0.3s; }
+        .nav-link { font-size: 0.875rem; font-weight: 600; letter-spacing: 0.05em; transition: color 0.3s; }
         .service-card { border-left: 2px solid #eee; transition: all 0.3s; }
         .service-card:hover { border-left-color: #000; background: rgba(0,0,0,0.02); }
         
         .other-work-link { 
             display: block; 
-            padding: 10px 0; 
+            padding: 12px 0; 
             transition: all 0.3s; 
             border-bottom: 1px solid #f5f5f5;
+            font-size: 0.9rem;
         }
         .other-work-link:hover { padding-left: 4px; color: #000; }
         
         .brand-tag {
-            padding: 8px 16px;
+            padding: 10px 20px;
             background: #fff;
             border: 1px solid #eee;
             border-radius: 12px;
-            font-size: 13px;
+            font-size: 14px;
             font-weight: 600;
             color: #444;
             transition: all 0.3s;
@@ -137,63 +150,62 @@
 
     <!-- Navigation -->
     <nav class="fixed w-full z-50 glass border-b border-gray-100">
-        <div class="max-w-7xl mx-auto px-6 py-4 flex justify-between items-center">
-            <div class="flex items-center space-x-10">
+        <div class="max-w-7xl mx-auto px-6 py-5 flex justify-between items-center">
+            <div class="flex items-center space-x-12">
                 <div class="flex flex-col">
-                    <span class="text-2xl font-bold tracking-tighter">NEO.</span>
-                    <span class="text-[8px] uppercase tracking-[0.2em] text-gray-400 font-bold -mt-0.5">Media Kit</span>
+                    <span class="text-2xl md:text-3xl font-bold tracking-tighter">NEO.</span>
+                    <span class="text-[9px] uppercase tracking-[0.2em] text-gray-400 font-bold -mt-0.5">Media Kit</span>
                 </div>
                 
-                <!-- Social Shortcut -->
-                <div class="hidden lg:flex items-center space-x-3 pl-8 border-l border-gray-100">
-                    <span class="text-[9px] uppercase tracking-widest text-gray-400 font-bold mr-1">Social Connect</span>
-                    <a href="https://www.instagram.com/333neo_hani?igsh=MXFreWtvZTRhczZqYQ%3D%3D&utm_source=qr" target="_blank" class="p-1.5 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
+                <div class="hidden lg:flex items-center space-x-4 pl-8 border-l border-gray-100">
+                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mr-2">Social Connect</span>
+                    <a href="https://www.instagram.com/333neo_hani?igsh=MXFreWtvZTRhczZqYQ%3D%3D&utm_source=qr" target="_blank" class="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
-                    <a href="https://www.tiktok.com/@thuneo?_t=ZS-90C0n2hJcxN&_r=1&fbclid=PARlRTSAQeJG9leHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadBh3zC_KAqcsLWuWcbj54ynx2Xhur9JLpTsACeKUGimsZQxhC43YYKcBN1Jg_aem_Vu6G3HPuNvh62fBpFYdpwQ" target="_blank" class="p-1.5 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 2.89 3.46 2.84 1.34-.02 2.61-.88 3.09-2.14.22-.51.27-1.06.26-1.61-.02-4.14-.01-8.27-.02-12.41z"/></svg>
+                    <a href="https://www.tiktok.com/@thuneo" target="_blank" class="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M12.525.02c1.31-.02 2.61-.01 3.91-.02.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 2.89 3.46 2.84 1.34-.02 2.61-.88 3.09-2.14.22-.51.27-1.06.26-1.61-.02-4.14-.01-8.27-.02-12.41z"/></svg>
                     </a>
-                    <a href="https://youtube.com/@newneo135?si=viAo2Y77cmPKnbus" target="_blank" class="p-1.5 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
-                        <svg class="w-4 h-4" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.871.505 9.376.505 9.376.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
+                    <!-- YouTube 快捷列補回 -->
+                    <a href="https://youtube.com/@newneo135?si=viAo2Y77cmPKnbus" target="_blank" class="p-2 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
+                        <svg class="w-5 h-5" fill="currentColor" viewBox="0 0 24 24"><path d="M23.498 6.186a3.016 3.016 0 0 0-2.122-2.136C19.505 3.545 12 3.545 12 3.545s-7.505 0-9.377.505A3.017 3.017 0 0 0 .502 6.186C0 8.07 0 12 0 12s0 3.93.502 5.814a3.016 3.016 0 0 0 2.122 2.136c1.872.505 9.377.505 9.377.505s7.505 0 9.377-.505a3.015 3.015 0 0 0 2.122-2.136C24 15.93 24 12 24 12s0-3.93-.502-5.814zM9.545 15.568V8.432L15.818 12l-6.273 3.568z"/></svg>
                     </a>
                 </div>
             </div>
 
-            <div class="hidden md:flex items-center space-x-8">
+            <div class="hidden md:flex items-center space-x-10">
                 <a href="#services" class="nav-link text-gray-400 hover:text-black transition-colors">合作項目</a>
-                <a href="#works" class="nav-link text-gray-400 hover:text-black transition-colors">精選案例</a>
                 <a href="#audience" class="nav-link text-gray-400 hover:text-black transition-colors">數據分析</a>
-                <a href="#contact" class="px-6 py-2.5 bg-black text-white rounded-full text-[10px] font-bold hover:bg-gray-800 transition-all hover:scale-105 active:scale-95">CONTACT</a>
+                <a href="#works" class="nav-link text-gray-400 hover:text-black transition-colors">精選案例</a>
+                <a href="#contact" class="px-8 py-3 bg-black text-white rounded-full text-[11px] font-bold hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 tracking-widest">CONTACT</a>
             </div>
         </div>
     </nav>
 
     <!-- 1. Hero Section -->
-    <section class="pt-48 pb-12 max-w-6xl mx-auto text-center reveal">
-        <!-- 💡 這裡換頭貼：將 profile.jpg 換成你的照片檔名 -->
+    <section class="pt-48 pb-16 max-w-6xl mx-auto text-center reveal">
         <div class="avatar-container">
             <img src="profile.jpg" alt="Neo" onerror="this.src='https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'">
         </div>
         
-        <h1 class="text-4xl md:text-6xl font-bold mb-8 tracking-tighter leading-tight gradient-text">
+        <h1 class="text-4xl md:text-7xl font-bold mb-10 tracking-tighter leading-tight gradient-text px-4">
             用真實感敘事，<br>為品牌創造深度的社群共鳴。
         </h1>
         
-        <p class="text-base md:text-lg text-gray-500 max-w-2xl mx-auto mb-10 leading-relaxed font-light">
+        <p class="text-base md:text-xl text-gray-500 max-w-3xl mx-auto mb-12 leading-relaxed font-light px-6">
             我是 Neo，專注於短影音創作與質感生活記錄。我擅長將產品自然融入「真實生活情境」，避開生硬的推銷，讓品牌以最有溫度的方式走進受眾的心中。
         </p>
         
-        <div class="flex flex-col md:flex-row justify-center items-center gap-5">
-            <a href="#contact" class="w-full md:w-auto px-10 py-3.5 bg-black text-white rounded-full font-bold hover:scale-105 transition-all shadow-xl shadow-black/10">立即商談合作</a>
-            <a href="#works" class="w-full md:md:w-auto px-10 py-3.5 glass rounded-full font-bold hover:bg-white transition-all">瀏覽精選案例</a>
+        <div class="flex flex-col md:flex-row justify-center items-center gap-6 px-6">
+            <a href="#contact" class="w-full md:w-auto px-12 py-4 bg-black text-white rounded-full font-bold hover:scale-105 transition-all shadow-2xl shadow-black/10">立即商談合作</a>
+            <a href="#works" class="w-full md:w-auto px-12 py-4 glass rounded-full font-bold hover:bg-white transition-all border border-gray-100">瀏覽精選案例</a>
         </div>
     </section>
 
     <!-- 2. Brand Partnerships -->
-    <section class="py-10">
-        <div class="max-w-5xl mx-auto px-6 reveal">
-            <h2 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-8 text-center">Brand Partnerships</h2>
-            <div class="flex flex-wrap justify-center gap-4">
+    <section class="py-12">
+        <div class="max-w-6xl mx-auto px-6 reveal">
+            <h2 class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-10 text-center">Brand Partnerships</h2>
+            <div class="flex flex-wrap justify-center gap-5">
                 <span class="brand-tag">Sony</span>
                 <span class="brand-tag">Travel blue</span>
                 <span class="brand-tag">仕高利達</span>
@@ -207,71 +219,71 @@
     </section>
 
     <!-- 3. Quick Stats -->
-    <section class="py-12 border-y border-gray-50 bg-gray-50/30">
-        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-6 reveal">
+    <section class="py-16 border-y border-gray-50 bg-gray-50/40">
+        <div class="max-w-6xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-10 reveal">
             <div class="text-center">
-                <div class="text-3xl font-bold mb-1">50+</div>
-                <div class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">品牌合作案例</div>
+                <div class="text-4xl font-bold mb-2">50+</div>
+                <div class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">品牌合作案例</div>
             </div>
             <div class="text-center">
-                <div class="text-3xl font-bold mb-1">500萬+</div>
-                <div class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">全平台觀看量</div>
+                <div class="text-4xl font-bold mb-2">500萬+</div>
+                <div class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">全平台觀看量</div>
             </div>
             <div class="text-center">
-                <div class="text-3xl font-bold mb-1">54%</div>
-                <div class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">核心受眾 25-34歲</div>
+                <div class="text-4xl font-bold mb-2">54%</div>
+                <div class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">核心受眾 25-34歲</div>
             </div>
             <div class="text-center">
-                <div class="text-3xl font-bold mb-1">質感 / 溫度</div>
-                <div class="text-[9px] uppercase tracking-widest text-gray-400 font-bold">內容核心關鍵字</div>
+                <div class="text-4xl font-bold mb-2">質感 / 溫度</div>
+                <div class="text-[10px] uppercase tracking-widest text-gray-400 font-bold">內容核心關鍵字</div>
             </div>
         </div>
     </section>
 
-    <!-- 4. Services & Advantage -->
-    <section id="services" class="max-w-6xl mx-auto px-6 py-20">
-        <div class="grid lg:grid-cols-2 gap-16 items-start">
+    <!-- 4. Services (What I Do) -->
+    <section id="services" class="max-w-7xl mx-auto px-6 py-24">
+        <div class="grid lg:grid-cols-2 gap-20 items-start">
             <div class="reveal">
-                <h2 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-4">What I Do</h2>
-                <h3 class="text-3xl font-bold mb-10">核心合作項目</h3>
-                <div class="space-y-4">
-                    <div class="service-card p-6 glass hover:shadow-lg transition-all">
-                        <h4 class="font-bold mb-2">品牌短影音企劃製作</h4>
-                        <p class="text-sm text-gray-500 font-light">腳本設計、拍攝到剪輯一條龍，專攻高互動率的 Reels/TikTok 內容。</p>
+                <h2 class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">What I Do</h2>
+                <h3 class="text-4xl md:text-5xl font-bold mb-12 tracking-tight">核心合作項目</h3>
+                <div class="space-y-6">
+                    <div class="service-card p-8 glass hover:shadow-xl transition-all">
+                        <h4 class="text-xl font-bold mb-3">品牌短影音企劃製作</h4>
+                        <p class="text-gray-500 font-light leading-relaxed">腳本設計、拍攝到剪輯一條龍，專攻高互動率的 Reels/TikTok 內容。</p>
                     </div>
-                    <div class="service-card p-6 glass hover:shadow-lg transition-all">
-                        <h4 class="font-bold mb-2">質感開箱與體驗分享</h4>
-                        <p class="text-sm text-gray-500 font-light">將產品無痛嵌入生活場景，透過第一人稱視角建立真實信任感。</p>
+                    <div class="service-card p-8 glass hover:shadow-xl transition-all">
+                        <h4 class="text-xl font-bold mb-3">質感開箱與體驗分享</h4>
+                        <p class="text-gray-500 font-light leading-relaxed">將產品無痛嵌入生活場景，透過第一人稱視角建立真實信任感。</p>
                     </div>
-                    <div class="service-card p-6 glass hover:shadow-lg transition-all">
-                        <h4 class="font-bold mb-2">實體活動紀錄與探店</h4>
-                        <p class="text-sm text-gray-500 font-light">捕捉活動當下的環境氛圍，創造極具帶入感的 UGC 體驗內容。</p>
+                    <div class="service-card p-8 glass hover:shadow-xl transition-all">
+                        <h4 class="text-xl font-bold mb-3">實體活動紀錄與探店</h4>
+                        <p class="text-gray-500 font-light leading-relaxed">捕捉活動當下的環境氛圍，創造極具帶入感的 UGC 體驗內容。</p>
                     </div>
                 </div>
             </div>
-            <div class="reveal delay-200 lg:pt-14">
-                <div class="p-8 bg-black text-white rounded-3xl shadow-2xl">
-                    <h3 class="text-xl font-bold mb-8 tracking-tight">我的合作優勢</h3>
-                    <ul class="space-y-8">
-                        <li class="flex gap-4">
-                            <div class="text-xs font-bold text-gray-500 mt-1">01</div>
+            <div class="reveal delay-200 lg:pt-20">
+                <div class="p-10 md:p-14 bg-black text-white rounded-[3rem] shadow-2xl relative overflow-hidden">
+                    <h3 class="text-2xl font-bold mb-10 tracking-tight relative z-10">我的合作優勢</h3>
+                    <ul class="space-y-12 relative z-10">
+                        <li class="flex gap-6">
+                            <div class="text-sm font-bold text-gray-500 mt-1">01</div>
                             <div>
-                                <p class="font-bold mb-1 text-base">極致的視覺美感</p>
-                                <p class="text-xs text-gray-400 leading-relaxed font-light">攝影師背景出身，對畫面構圖與色調有嚴苛追求，確保內容質感。</p>
+                                <p class="text-lg font-bold mb-2 text-white">極致的視覺美感</p>
+                                <p class="text-sm text-gray-400 leading-relaxed font-light">攝影師背景出身，對畫面構圖與色調有嚴苛追求，確保內容質感。</p>
                             </div>
                         </li>
-                        <li class="flex gap-4">
-                            <div class="text-xs font-bold text-gray-500 mt-1">02</div>
+                        <li class="flex gap-6">
+                            <div class="text-sm font-bold text-gray-500 mt-1">02</div>
                             <div>
-                                <p class="font-bold mb-1 text-base">高忠誠度的受眾圈</p>
-                                <p class="text-xs text-gray-400 leading-relaxed font-light">長期耕耘高質感生活領域，粉絲具備極高的消費潛力與產品認同感。</p>
+                                <p class="text-lg font-bold mb-2 text-white">高忠誠度的受眾圈</p>
+                                <p class="text-sm text-gray-400 leading-relaxed font-light">長期耕耘高質感生活領域，粉絲具備極高的消費潛力與產品認同感。</p>
                             </div>
                         </li>
-                        <li class="flex gap-4">
-                            <div class="text-xs font-bold text-gray-500 mt-1">03</div>
+                        <li class="flex gap-6">
+                            <div class="text-sm font-bold text-gray-500 mt-1">03</div>
                             <div>
-                                <p class="font-bold mb-1 text-base">靈活的溝通與執行</p>
-                                <p class="text-xs text-gray-400 leading-relaxed font-light">理解品牌端的商業需求，能夠快速調整創意方向以達成行銷目標。</p>
+                                <p class="text-lg font-bold mb-2 text-white">靈活的溝通與執行</p>
+                                <p class="text-sm text-gray-400 leading-relaxed font-light">理解品牌端的商業需求，能夠快速調整創意方向以達成行銷目標。</p>
                             </div>
                         </li>
                     </ul>
@@ -280,86 +292,54 @@
         </div>
     </section>
 
-    <!-- 5. Featured Works -->
-    <section id="works" class="py-20 bg-gray-50/50">
+    <!-- 5. Audience Data -->
+    <section id="audience" class="py-24 bg-white">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12 reveal text-center md:text-left">
-                <h2 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-3">Portfolio</h2>
-                <h3 class="text-3xl font-bold">精選案例展示</h3>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-20">
-                <!-- 💡 修改作品封面：替換下面的 img src -->
+            <h2 class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-16 text-center">Audience Insights</h2>
+            <div class="grid lg:grid-cols-2 gap-20 items-center">
+                <div class="glass p-12 md:p-16 rounded-[3.5rem] reveal">
+                    <h4 class="text-2xl font-bold mb-12">受眾年齡分佈 Profile</h4>
+                    <div class="space-y-12">
+                        <div>
+                            <div class="flex justify-between text-base mb-4 font-bold"><span>25 - 34 歲</span><span>54%</span></div>
+                            <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                                <div class="bg-black h-full w-[54%]"></div>
+                            </div>
+                        </div>
+                        <div>
+                            <div class="flex justify-between text-base mb-4 font-bold"><span>18 - 24 歲</span><span>20%</span></div>
+                            <div class="w-full bg-gray-100 h-3 rounded-full overflow-hidden">
+                                <div class="bg-gray-400 h-full w-[20%]"></div>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    <div class="mt-20 pt-12 border-t border-gray-100 flex items-center justify-between">
+                        <div class="text-center flex-1">
+                            <p class="text-4xl font-bold mb-1">71%</p>
+                            <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Male</p>
+                        </div>
+                        <div class="w-px h-12 bg-gray-100"></div>
+                        <div class="text-center flex-1">
+                            <p class="text-4xl font-bold text-gray-300 mb-1">29%</p>
+                            <p class="text-[11px] font-bold text-gray-400 uppercase tracking-widest">Female</p>
+                        </div>
+                    </div>
+                </div>
                 
-                <!-- 作品 2 -->
-                <div class="hover-lift reveal" onclick="window.open('https://www.instagram.com/reel/DMWwv6OSSyv/', '_blank')">
-                    <div class="video-card mb-4">
-                        <img src="cover-2.jpg" alt="高質感開箱 - 刮鬍刀" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-base mb-1">高質感開箱 - 刮鬍刀</h4>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Sony / Commercial</p>
-                </div>
-
-                <!-- 作品 3 -->
-                <div class="hover-lift reveal delay-100" onclick="window.open('https://www.instagram.com/reel/DG5bAYSyNkl/', '_blank')">
-                    <div class="video-card mb-4">
-                        <img src="cover-3.jpg" alt="旅行產品介紹 - 旅行配件" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-base mb-1">旅行產品介紹 - 旅行配件</h4>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Travel Blue / Review</p>
-                </div>
-
-                <!-- 作品 1 -->
-                <div class="hover-lift reveal delay-200" onclick="window.open('https://www.instagram.com/reel/DG9qyaKyAFi/', '_blank')">
-                    <div class="video-card mb-4">
-                        <img src="cover-1.jpg" alt="秘境探索 - 線西沙灘" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-base mb-1">秘境探索 - 線西沙灘</h4>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Content Creation</p>
-                </div>
-
-                <!-- 作品 5 -->
-                <div class="hover-lift reveal delay-300" onclick="window.open('https://www.instagram.com/stories/highlights/18177508876325440/', '_blank')">
-                    <div class="video-card mb-4">
-                        <img src="cover-5.jpg" alt="線下聚會：陌生人聚餐" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-base mb-1">線下聚會：陌生人聚餐</h4>
-                    <p class="text-[10px] text-gray-400 uppercase tracking-widest font-bold">Community Event</p>
-                </div>
-            </div>
-
-            <!-- Full Portfolio Library -->
-            <div class="reveal border-t border-gray-200 pt-16">
-                <h3 class="text-base font-bold mb-12 text-center uppercase tracking-[0.2em] text-gray-400">Full Portfolio Library</h3>
-                <div class="grid md:grid-cols-3 gap-12 max-w-6xl mx-auto">
-                    <div>
-                        <h4 class="text-sm font-bold mb-6 flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-black rounded-full"></span> 旅遊 / 體驗
-                        </h4>
-                        <div class="space-y-2">
-                            <a href="https://www.instagram.com/reel/DNqEKGqy3yv/" target="_blank" class="other-work-link text-[11px] text-gray-500">旅行配件 (後背包) 合作</a>
-                            <a href="https://www.instagram.com/reel/DOuthhxkSx7/" target="_blank" class="other-work-link text-[11px] text-gray-500">充氣幫浦開箱體驗</a>
-                            <a href="https://www.instagram.com/p/DPi20wekatV/" target="_blank" class="other-work-link text-[11px] text-gray-500">共享汽車平台合作紀錄</a>
+                <div class="reveal delay-200">
+                    <h4 class="text-3xl font-bold mb-8">高價值的精準社群</h4>
+                    <p class="text-gray-500 text-lg font-light leading-relaxed mb-12">
+                        我的核心受眾主要分佈於具備高度購買力的青壯年族群，這群人對於「生活美學、數位產品、獨旅體驗」有著強烈的投資意願。男性受眾佔比顯著，對於 3C 硬體與質感單品的內容反饋尤為熱烈。
+                    </p>
+                    <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <div class="p-8 border border-gray-100 rounded-3xl hover:border-black transition-colors">
+                            <p class="text-xl font-bold mb-2">科技愛好</p>
+                            <p class="text-sm text-gray-400 leading-relaxed">追蹤最新硬體發布與數位工作流，重視產品的機能與美感並重。</p>
                         </div>
-                    </div>
-                    <div>
-                        <h4 class="text-sm font-bold mb-6 flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-black rounded-full"></span> 質感 3C / 生活
-                        </h4>
-                        <div class="space-y-2">
-                            <a href="https://www.instagram.com/p/DOoBa0dkZf1/" target="_blank" class="other-work-link text-[11px] text-gray-500">質感無線耳機深度評測</a>
-                            <a href="https://www.instagram.com/reel/DLkJO63ygx7/" target="_blank" class="other-work-link text-[11px] text-gray-500">機械鍵盤開箱與打字音分享</a>
-                            <a href="https://www.instagram.com/reel/DJq_jmaRE2G/" target="_blank" class="other-work-link text-[11px] text-gray-500">仕高利達威士忌品飲紀實</a>
-                        </div>
-                    </div>
-                    <div>
-                        <h4 class="text-sm font-bold mb-6 flex items-center gap-2">
-                            <span class="w-1.5 h-1.5 bg-black rounded-full"></span> 個人攝影 / 生活
-                        </h4>
-                        <div class="space-y-2">
-                            <a href="https://www.instagram.com/p/DMAFzP1Sz0T/" target="_blank" class="other-work-link text-[11px] text-gray-500">海外獨旅生活 Vlog</a>
-                            <a href="https://www.instagram.com/p/DPEA5QBkV5d/" target="_blank" class="other-work-link text-[11px] text-gray-500">渋谷街頭攝影系列作品</a>
-                            <a href="https://www.instagram.com/neo_photo_roto/" target="_blank" class="other-work-link text-[11px] font-bold border-b border-black inline-block mt-2">攝影帳號：@neo_photo_roto</a>
+                        <div class="p-8 border border-gray-100 rounded-3xl hover:border-black transition-colors">
+                            <p class="text-xl font-bold mb-2">質感玩家</p>
+                            <p class="text-sm text-gray-400 leading-relaxed">追求卓越的生活品質，願意為卓越設計與品牌精神支付溢價。</p>
                         </div>
                     </div>
                 </div>
@@ -367,54 +347,80 @@
         </div>
     </section>
 
-    <!-- 6. Audience Data -->
-    <section id="audience" class="py-24">
-        <div class="max-w-6xl mx-auto px-6">
-            <h2 class="text-[10px] font-bold uppercase tracking-widest text-gray-400 mb-12 text-center">Audience Insights</h2>
-            <div class="grid md:grid-cols-2 gap-12 items-center">
-                <div class="glass p-10 rounded-[2.5rem] reveal">
-                    <h4 class="text-xl font-bold mb-10">年齡分佈 Profile</h4>
-                    <div class="space-y-10">
-                        <div>
-                            <div class="flex justify-between text-sm mb-3 font-bold"><span>25 - 34 歲</span><span>54%</span></div>
-                            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-black h-full w-[54%]"></div>
-                            </div>
-                        </div>
-                        <div>
-                            <div class="flex justify-between text-sm mb-3 font-bold"><span>18 - 24 歲</span><span>20%</span></div>
-                            <div class="w-full bg-gray-100 h-2.5 rounded-full overflow-hidden">
-                                <div class="bg-gray-400 h-full w-[20%]"></div>
-                            </div>
-                        </div>
+    <!-- 6. Featured Works -->
+    <section id="works" class="py-28 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="mb-16 reveal text-center lg:text-left">
+                <h2 class="text-[11px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4">Portfolio</h2>
+                <h3 class="text-4xl md:text-5xl font-bold">精選案例展示</h3>
+            </div>
+            
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-24">
+                <div class="hover-lift reveal" onclick="window.open('https://www.instagram.com/reel/DMWwv6OSSyv/', '_blank')">
+                    <div class="video-card mb-5 shadow-lg">
+                        <img src="cover-2.jpg" alt="高質感開箱 - 刮鬍刀" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400&auto=format&fit=crop'">
                     </div>
-                    
-                    <div class="mt-16 pt-10 border-t border-gray-100 flex items-center justify-between">
-                        <div class="text-center flex-1">
-                            <p class="text-3xl font-bold">71%</p>
-                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Male</p>
-                        </div>
-                        <div class="w-px h-10 bg-gray-100"></div>
-                        <div class="text-center flex-1">
-                            <p class="text-3xl font-bold text-gray-300">29%</p>
-                            <p class="text-[10px] font-bold text-gray-400 uppercase tracking-widest">Female</p>
-                        </div>
-                    </div>
+                    <h4 class="font-bold text-lg mb-1">高質感開箱 - 刮鬍刀</h4>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Sony / Commercial</p>
                 </div>
-                
-                <div class="p-4 reveal delay-200">
-                    <h4 class="text-2xl font-bold mb-6">高價值的精準社群</h4>
-                    <p class="text-gray-500 text-sm font-light leading-relaxed mb-8">
-                        我的核心受眾主要分佈於具備高度購買力的青壯年族群，這群人對於「生活美學、數位產品、獨旅體驗」有著強烈的投資意願。男性受眾佔比顯著，對於 3C 硬體與質感單品的內容反饋尤為熱烈。
-                    </p>
-                    <div class="grid grid-cols-2 gap-4">
-                        <div class="p-4 border border-gray-100 rounded-2xl">
-                            <p class="text-sm font-bold mb-1">科技愛好</p>
-                            <p class="text-[10px] text-gray-400 leading-tight">追蹤最新硬體發布與數位工作流</p>
+
+                <div class="hover-lift reveal delay-100" onclick="window.open('https://www.instagram.com/reel/DG5bAYSyNkl/', '_blank')">
+                    <div class="video-card mb-5 shadow-lg">
+                        <img src="cover-3.jpg" alt="旅行產品介紹 - 旅行配件" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop'">
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">旅行產品介紹 - 旅行配件</h4>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Travel Blue / Review</p>
+                </div>
+
+                <div class="hover-lift reveal delay-200" onclick="window.open('https://www.instagram.com/reel/DG9qyaKyAFi/', '_blank')">
+                    <div class="video-card mb-5 shadow-lg">
+                        <img src="cover-1.jpg" alt="秘境探索 - 線西沙灘" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'">
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">秘境探索 - 線西沙灘</h4>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Content Creation</p>
+                </div>
+
+                <div class="hover-lift reveal delay-300" onclick="window.open('https://www.instagram.com/stories/highlights/18177508876325440/', '_blank')">
+                    <div class="video-card mb-5 shadow-lg">
+                        <img src="cover-5.jpg" alt="線下聚會：陌生人聚餐" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=400&auto=format&fit=crop'">
+                    </div>
+                    <h4 class="font-bold text-lg mb-1">線下聚會：陌生人聚餐</h4>
+                    <p class="text-[10px] text-gray-400 uppercase tracking-[0.2em] font-bold">Community Event</p>
+                </div>
+            </div>
+
+            <!-- Full Library -->
+            <div class="reveal border-t border-gray-200 pt-20">
+                <h3 class="text-xs font-bold mb-16 text-center uppercase tracking-[0.4em] text-gray-400">Full Portfolio Library</h3>
+                <div class="grid md:grid-cols-3 gap-16 max-w-6xl mx-auto">
+                    <div>
+                        <h4 class="text-base font-bold mb-8 flex items-center gap-3">
+                            <span class="w-2 h-2 bg-black rounded-full"></span> 旅遊 / 體驗
+                        </h4>
+                        <div class="space-y-1">
+                            <a href="https://www.instagram.com/reel/DNqEKGqy3yv/" target="_blank" class="other-work-link">旅行配件 (後背包) 合作</a>
+                            <a href="https://www.instagram.com/reel/DOuthhxkSx7/" target="_blank" class="other-work-link">充氣幫浦開箱體驗</a>
+                            <a href="https://www.instagram.com/p/DPi20wekatV/" target="_blank" class="other-work-link">共享汽車平台合作紀錄</a>
                         </div>
-                        <div class="p-4 border border-gray-100 rounded-2xl">
-                            <p class="text-sm font-bold mb-1">質感玩家</p>
-                            <p class="text-[10px] text-gray-400 leading-tight">願意為設計與品質支付更高的溢價</p>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold mb-8 flex items-center gap-3">
+                            <span class="w-2 h-2 bg-black rounded-full"></span> 質感 3C / 生活
+                        </h4>
+                        <div class="space-y-1">
+                            <a href="https://www.instagram.com/p/DOoBa0dkZf1/" target="_blank" class="other-work-link">質感無線耳機深度評測</a>
+                            <a href="https://www.instagram.com/reel/DLkJO63ygx7/" target="_blank" class="other-work-link">機械鍵盤開箱與打字音分享</a>
+                            <a href="https://www.instagram.com/reel/DJq_jmaRE2G/" target="_blank" class="other-work-link">仕高利達威士忌品飲紀實</a>
+                        </div>
+                    </div>
+                    <div>
+                        <h4 class="text-base font-bold mb-8 flex items-center gap-3">
+                            <span class="w-2 h-2 bg-black rounded-full"></span> 個人攝影 / 生活
+                        </h4>
+                        <div class="space-y-1">
+                            <a href="https://www.instagram.com/p/DMAFzP1Sz0T/" target="_blank" class="other-work-link">海外獨旅生活 Vlog</a>
+                            <a href="https://www.instagram.com/p/DPEA5QBkV5d/" target="_blank" class="other-work-link">渋谷街頭攝影系列作品</a>
+                            <a href="https://www.instagram.com/neo_photo_roto/" target="_blank" class="other-work-link font-bold text-black border-b-2 border-black inline-block mt-4">攝影帳號：@neo_photo_roto</a>
                         </div>
                     </div>
                 </div>
@@ -423,25 +429,25 @@
     </section>
 
     <!-- 7. Contact -->
-    <section id="contact" class="max-w-5xl mx-auto px-6 mb-32 text-center reveal">
-        <div class="glass-dark text-white p-16 md:p-24 rounded-[3.5rem] relative overflow-hidden">
+    <section id="contact" class="max-w-6xl mx-auto px-6 mb-40 text-center reveal">
+        <div class="glass-dark text-white p-16 md:p-32 rounded-[4rem] relative overflow-hidden shadow-2xl">
             <div class="relative z-10">
-                <span class="text-[9px] font-bold uppercase tracking-[0.5em] text-gray-500 mb-8 block">Let's Connect</span>
-                <h2 class="text-3xl md:text-5xl font-bold mb-8 tracking-tighter italic">
+                <span class="text-[10px] font-bold uppercase tracking-[0.6em] text-gray-500 mb-10 block">Let's Connect</span>
+                <h2 class="text-3xl md:text-6xl font-bold mb-10 tracking-tighter leading-[1.1]">
                     如果你也剛好喜歡我的風格，<br>不如我們直接聊聊這次的合作創意？
                 </h2>
-                <p class="text-gray-400 text-sm mb-12 max-w-lg mx-auto font-light leading-relaxed">
+                <p class="text-gray-400 text-lg mb-16 max-w-2xl mx-auto font-light leading-relaxed">
                     無論是品牌的長期推廣，或是一個簡單有趣的專案，我都非常期待能與您共同創作出有溫度的內容。
                 </p>
-                <div class="flex flex-col items-center gap-8">
-                    <a href="mailto:i60402@kimo.com" class="text-2xl md:text-4xl font-bold border-b-2 border-white/20 pb-1 hover:text-gray-200 transition-all">
+                <div class="flex flex-col items-center gap-10">
+                    <a href="mailto:i60402@kimo.com" class="text-2xl md:text-5xl font-bold border-b-2 border-white/20 pb-2 hover:text-gray-200 transition-all">
                         i60402@kimo.com
                     </a>
-                    <p class="text-gray-400 font-mono text-sm tracking-widest uppercase">Tel: 0912490623</p>
-                    <div class="flex gap-10 mt-6">
-                        <a href="https://www.instagram.com/333neo_hani?igsh=MXFreWtvZTRhczZqYQ%3D%3D&utm_source=qr" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Instagram</a>
-                        <a href="https://www.tiktok.com/@thuneo?_t=ZS-90C0n2hJcxN&_r=1&fbclid=PARlRTSAQeJG9leHRuA2FlbQIxMABzcnRjBmFwcF9pZA8xMjQwMjQ1NzQyODc0MTQAAadBh3zC_KAqcsLWuWcbj54ynx2Xhur9JLpTsACeKUGimsZQxhC43YYKcBN1Jg_aem_Vu6G3HPuNvh62fBpFYdpwQ" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">TikTok</a>
-                        <a href="https://youtube.com/@newneo135?si=viAo2Y77cmPKnbus" target="_blank" class="text-[10px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">YouTube</a>
+                    <p class="text-gray-400 font-mono text-base tracking-widest uppercase">Tel: 0912490623</p>
+                    <div class="flex flex-wrap justify-center gap-12 mt-8">
+                        <a href="https://www.instagram.com/333neo_hani?igsh=MXFreWtvZTRhczZqYQ%3D%3D&utm_source=qr" target="_blank" class="text-[11px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Instagram</a>
+                        <a href="https://www.tiktok.com/@thuneo" target="_blank" class="text-[11px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">TikTok</a>
+                        <a href="https://youtube.com/@newneo135?si=viAo2Y77cmPKnbus" target="_blank" class="text-[11px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">YouTube</a>
                     </div>
                 </div>
             </div>
@@ -449,9 +455,9 @@
     </section>
 
     <!-- Footer -->
-    <footer class="py-12 border-t border-gray-100 text-center">
-        <span class="text-2xl font-bold tracking-tighter mb-4 block">NEO.</span>
-        <p class="text-[9px] text-gray-400 uppercase tracking-[0.4em] font-bold">2024 &copy; BRAND COLLABORATION PORTFOLIO</p>
+    <footer class="py-16 border-t border-gray-100 text-center">
+        <span class="text-3xl font-bold tracking-tighter mb-6 block">NEO.</span>
+        <p class="text-[10px] text-gray-400 uppercase tracking-[0.5em] font-bold">2024 &copy; BRAND COLLABORATION PORTFOLIO</p>
     </footer>
 
     <script>
