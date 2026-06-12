@@ -2,11 +2,22 @@
 <html lang="zh-TW">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Neo | Creator Media Kit - Brand Collaboration Portfolio</title>
-    <script src="https://cdn.tailwindcss.com"></script>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+    <meta name="theme-color" content="#0a0a0a">
+    <title>Neo | 創作者合作提案 Media Kit — 短影音 × 品牌敘事</title>
+    <meta name="description" content="Neo 是專注短影音與質感生活敘事的內容創作者。合作品牌包含 Sony、Sudio、GravaStar 等，全平台累積 500 萬+ 觀看。擅長將產品自然融入真實生活情境，為品牌創造高互動的社群共鳴。">
+
+    <!-- Open Graph：品牌分享連結時顯示專業預覽 -->
+    <meta property="og:type" content="website">
+    <meta property="og:title" content="Neo | 創作者合作提案 — 用真實感敘事為品牌創造社群共鳴">
+    <meta property="og:description" content="短影音 × 質感生活敘事。已合作 Sony、Sudio、GravaStar 等品牌，全平台 500 萬+ 觀看。">
+    <meta property="og:image" content="cover-1.jpg">
+    <meta name="twitter:card" content="summary_large_image">
+
+    <link rel="stylesheet" href="tailwind.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link rel="preload" as="image" href="profile.jpg">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&family=Noto+Sans+TC:wght@300;400;700&display=swap" rel="stylesheet">
     <style>
         body { 
@@ -153,6 +164,71 @@
             color: #000;
             transform: scale(1.05);
         }
+
+        /* 手機底部固定 CTA bar — 提高合作詢問轉換率 */
+        .mobile-cta {
+            position: fixed;
+            bottom: 0;
+            left: 0;
+            right: 0;
+            z-index: 60;
+            padding: 12px 16px calc(12px + env(safe-area-inset-bottom));
+            background: rgba(255, 255, 255, 0.85);
+            backdrop-filter: blur(16px);
+            -webkit-backdrop-filter: blur(16px);
+            border-top: 1px solid rgba(0,0,0,0.06);
+            display: flex;
+            gap: 10px;
+            transform: translateY(120%);
+            transition: transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .mobile-cta.visible { transform: translateY(0); }
+        @media (min-width: 768px) { .mobile-cta { display: none !important; } }
+
+        /* 在有手機 CTA 時，避免 footer 內容被遮住 */
+        @media (max-width: 767px) {
+            footer { padding-bottom: 110px; }
+        }
+
+        /* 案例卡片右下角的「觀看」提示，讓人知道可點擊 */
+        .video-card::after {
+            content: "";
+            position: absolute;
+            inset: 0;
+            background: linear-gradient(to top, rgba(0,0,0,0.35), transparent 45%);
+            opacity: 0;
+            transition: opacity 0.4s ease;
+            pointer-events: none;
+        }
+        .hover-lift:hover .video-card::after { opacity: 1; }
+        .play-badge {
+            position: absolute;
+            bottom: 12px; left: 12px;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            padding: 6px 12px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.92);
+            font-size: 11px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            color: #111;
+        }
+
+        /* 手機字級微調：標題不要太擠 */
+        @media (max-width: 640px) {
+            h1 { line-height: 1.3 !important; }
+            section { padding: 64px 20px; }
+        }
+
+        /* 尊重使用者的減少動態偏好設定 */
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1 !important; transform: none !important; }
+            .bg-blob { animation: none; }
+            * { scroll-behavior: auto !important; }
+        }
     </style>
 </head>
 <body class="antialiased">
@@ -215,19 +291,36 @@
     </nav>
 
     <!-- 1. Hero Section -->
-    <section class="pt-40 md:pt-48 pb-16 max-w-7xl mx-auto text-center reveal">
+    <section class="pt-36 md:pt-48 pb-16 max-w-7xl mx-auto text-center reveal">
         <div class="avatar-container">
-            <img src="profile.jpg" alt="Neo" onerror="this.src='https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'">
+            <img src="profile.jpg" alt="Neo｜短影音創作者" width="220" height="220" onerror="this.src='https://images.unsplash.com/photo-1539571696357-5a69c17a67c6?q=80&w=400&auto=format&fit=crop'">
         </div>
-        
-        <h1 class="text-3xl sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 lg:mb-10 tracking-tighter leading-tight gradient-text px-4">
+
+        <!-- 可用狀態徽章：讓品牌知道現在可以合作 -->
+        <div class="flex justify-center mb-6">
+            <span class="inline-flex items-center gap-2 px-4 py-1.5 rounded-full bg-emerald-50 border border-emerald-100 text-emerald-700 text-[12px] md:text-[13px] font-bold tracking-wide">
+                <span class="w-1.5 h-1.5 rounded-full bg-emerald-500 animate-pulse"></span>
+                目前開放品牌合作邀約
+            </span>
+        </div>
+
+        <h1 class="text-[28px] sm:text-4xl md:text-5xl lg:text-7xl font-bold mb-6 lg:mb-10 tracking-tighter leading-tight gradient-text px-4">
             用真實感敘事，<br>為品牌創造深度的社群共鳴。
         </h1>
-        
-        <p class="text-[15px] sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-500 max-w-4xl mx-auto mb-10 lg:mb-14 leading-[1.8] font-light px-6">
+
+        <p class="text-[15px] sm:text-base md:text-lg lg:text-xl xl:text-2xl text-gray-500 max-w-4xl mx-auto mb-8 lg:mb-12 leading-[1.8] font-light px-6">
             我是 Neo，專注於短影音創作與質感生活記錄。我擅長將產品自然融入「真實生活情境」，避開生硬的推銷，讓品牌以最有溫度的方式走進受眾的心中。
         </p>
-        
+
+        <!-- Hero 信任訊號列 -->
+        <div class="flex flex-wrap justify-center items-center gap-x-6 gap-y-3 mb-10 lg:mb-14 px-6 text-[12px] md:text-[14px] text-gray-400 font-bold">
+            <span class="flex items-center gap-2"><span class="text-black text-base md:text-lg font-bold">50+</span> 品牌合作</span>
+            <span class="w-1 h-1 rounded-full bg-gray-300 hidden sm:block"></span>
+            <span class="flex items-center gap-2"><span class="text-black text-base md:text-lg font-bold">500萬+</span> 全平台觀看</span>
+            <span class="w-1 h-1 rounded-full bg-gray-300 hidden sm:block"></span>
+            <span>Instagram · TikTok · YouTube</span>
+        </div>
+
         <div class="flex flex-col sm:flex-row justify-center items-center gap-4 lg:gap-6 px-6">
             <a href="#contact" class="w-full sm:w-auto px-10 lg:px-14 py-4 lg:py-5 bg-black text-white rounded-full font-bold text-[15px] lg:text-lg hover:scale-105 transition-all shadow-2xl shadow-black/10">立即商談合作</a>
             <a href="#works" class="w-full sm:w-auto px-10 lg:px-14 py-4 lg:py-5 glass rounded-full font-bold text-[15px] lg:text-lg hover:bg-white transition-all border border-gray-200">瀏覽精選案例</a>
@@ -252,23 +345,23 @@
     </section>
 
     <!-- 3. Quick Stats -->
-    <section class="py-16 lg:py-20 border-y border-gray-50 bg-gray-50/40">
-        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-8 lg:gap-12 reveal">
-            <div class="text-center">
+    <section class="py-14 lg:py-20 border-y border-gray-100 bg-gray-50/40">
+        <div class="max-w-7xl mx-auto px-6 grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 lg:gap-12 reveal">
+            <div class="text-center md:border-r border-gray-200/70 last:border-0">
                 <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">50+</div>
-                <div class="text-[9px] md:text-[12px] uppercase tracking-widest text-gray-400 font-bold">品牌合作案例</div>
+                <div class="text-[10px] md:text-[12px] tracking-widest text-gray-500 font-bold">品牌合作案例</div>
             </div>
-            <div class="text-center">
+            <div class="text-center md:border-r border-gray-200/70">
                 <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">500萬+</div>
-                <div class="text-[9px] md:text-[12px] uppercase tracking-widest text-gray-400 font-bold">全平台觀看量</div>
+                <div class="text-[10px] md:text-[12px] tracking-widest text-gray-500 font-bold">全平台觀看量</div>
             </div>
-            <div class="text-center">
+            <div class="text-center md:border-r border-gray-200/70">
                 <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">54%</div>
-                <div class="text-[9px] md:text-[12px] uppercase tracking-widest text-gray-400 font-bold">核心受眾 25-34歲</div>
+                <div class="text-[10px] md:text-[12px] tracking-widest text-gray-500 font-bold">核心受眾 25–34 歲</div>
             </div>
             <div class="text-center">
-                <div class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-2 lg:mb-3 tracking-tighter">質感/溫度</div>
-                <div class="text-[9px] md:text-[12px] uppercase tracking-widest text-gray-400 font-bold">內容核心關鍵字</div>
+                <div class="text-2xl sm:text-3xl lg:text-5xl font-bold mb-2 lg:mb-3 tracking-tighter">質感・溫度</div>
+                <div class="text-[10px] md:text-[12px] tracking-widest text-gray-500 font-bold">內容核心關鍵字</div>
             </div>
         </div>
     </section>
@@ -391,7 +484,8 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-20 lg:mb-28">
                 <div class="hover-lift reveal" onclick="window.open('https://www.instagram.com/reel/DMWwv6OSSyv/', '_blank')">
                     <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <img src="cover-2.jpg" alt="高質感開箱 - 刮鬍刀" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400&auto=format&fit=crop'">
+                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <img src="cover-2.jpg" alt="高質感開箱 - 刮鬍刀" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400&auto=format&fit=crop'">
                     </div>
                     <h4 class="font-bold text-lg lg:text-xl mb-1">高質感開箱 - 刮鬍刀</h4>
                     <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Sony / Commercial</p>
@@ -399,7 +493,8 @@
 
                 <div class="hover-lift reveal delay-100" onclick="window.open('https://www.instagram.com/reel/DG5bAYSyNkl/', '_blank')">
                     <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <img src="cover-3.jpg" alt="旅行產品介紹 - 旅行配件" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop'">
+                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <img src="cover-3.jpg" alt="旅行產品介紹 - 旅行配件" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop'">
                     </div>
                     <h4 class="font-bold text-lg lg:text-xl mb-1">旅行產品介紹 - 旅行配件</h4>
                     <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Travel Blue / Review</p>
@@ -407,7 +502,8 @@
 
                 <div class="hover-lift reveal delay-200" onclick="window.open('https://www.instagram.com/reel/DG9qyaKyAFi/', '_blank')">
                     <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <img src="cover-1.jpg" alt="秘境探索 - 線西沙灘" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'">
+                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <img src="cover-1.jpg" alt="秘境探索 - 線西沙灘" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'">
                     </div>
                     <h4 class="font-bold text-lg lg:text-xl mb-1">秘境探索 - 線西沙灘</h4>
                     <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Content Creation</p>
@@ -415,7 +511,8 @@
 
                 <div class="hover-lift reveal delay-300" onclick="window.open('https://www.instagram.com/stories/highlights/18177508876325440/', '_blank')">
                     <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <img src="cover-5.jpg" alt="線下聚會：陌生人聚餐" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=400&auto=format&fit=crop'">
+                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看精選</span>
+                        <img src="cover-5.jpg" alt="線下聚會：陌生人聚餐" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=400&auto=format&fit=crop'">
                     </div>
                     <h4 class="font-bold text-lg lg:text-xl mb-1">線下聚會：陌生人聚餐</h4>
                     <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Community Event</p>
@@ -475,13 +572,19 @@
                     無論是品牌的長期推廣，或是一個簡單有趣的專案，我都非常期待能與您共同創作出有溫度的內容。
                 </p>
                 
-                <div class="flex flex-col items-center gap-8 lg:gap-12">
-                    <a href="mailto:i60402@kimo.com" class="text-2xl sm:text-3xl md:text-5xl lg:text-6xl font-bold border-b-2 border-white/20 pb-2 hover:text-gray-200 transition-all">
+                <div class="flex flex-col items-center gap-6 lg:gap-10">
+                    <a href="mailto:i60402@kimo.com?subject=品牌合作邀約&body=Hi Neo，我們是 ____ 品牌，想與你洽談合作。%0D%0A%0D%0A合作內容：%0D%0A預算範圍：%0D%0A期望檔期：" class="text-xl sm:text-3xl md:text-5xl lg:text-6xl font-bold border-b-2 border-white/20 pb-2 hover:text-gray-200 transition-all break-all">
                         i60402@kimo.com
                     </a>
-                    <p class="text-gray-400 font-mono text-base md:text-xl tracking-widest uppercase">Tel: 0912490623</p>
-                    
-                    <div class="flex flex-wrap justify-center gap-8 lg:gap-14 mt-6 lg:mt-10">
+
+                    <div class="flex flex-wrap justify-center items-center gap-3 sm:gap-4">
+                        <a href="mailto:i60402@kimo.com?subject=品牌合作邀約&body=Hi Neo，我們是 ____ 品牌，想與你洽談合作。%0D%0A%0D%0A合作內容：%0D%0A預算範圍：%0D%0A期望檔期：" class="px-8 py-3.5 bg-white text-black rounded-full font-bold text-[15px] hover:scale-105 transition-all">寄送合作邀約</a>
+                        <button onclick="copyEmail(this)" class="px-8 py-3.5 border border-white/25 text-white rounded-full font-bold text-[15px] hover:bg-white/10 transition-all">複製信箱</button>
+                    </div>
+
+                    <p class="text-gray-400 font-mono text-sm md:text-xl tracking-widest uppercase">Tel: 0912490623</p>
+
+                    <div class="flex flex-wrap justify-center gap-8 lg:gap-14 mt-4 lg:mt-8">
                         <a href="https://www.instagram.com/333neo_hani?igsh=MXFreWtvZTRhczZqYQ%3D%3D&utm_source=qr" target="_blank" class="text-[11px] md:text-[14px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">Instagram</a>
                         <a href="https://www.tiktok.com/@thuneo" target="_blank" class="text-[11px] md:text-[14px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">TikTok</a>
                         <a href="https://youtube.com/@newneo135?si=viAo2Y77cmPKnbus" target="_blank" class="text-[11px] md:text-[14px] font-bold uppercase tracking-widest text-gray-500 hover:text-white transition-colors">YouTube</a>
@@ -494,11 +597,21 @@
     <!-- Footer -->
     <footer class="py-16 lg:py-20 border-t border-gray-100 text-center">
         <span class="text-3xl lg:text-4xl font-bold tracking-tighter mb-6 lg:mb-8 block">NEO.</span>
-        <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.5em] font-bold">2024 &copy; BRAND COLLABORATION PORTFOLIO</p>
+        <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.5em] font-bold">2025 &copy; BRAND COLLABORATION PORTFOLIO</p>
     </footer>
+
+    <!-- 手機底部固定 CTA bar -->
+    <div class="mobile-cta" id="mobileCta">
+        <a href="mailto:i60402@kimo.com?subject=品牌合作邀約&body=Hi Neo，我們是 ____ 品牌，想與你洽談合作。%0D%0A%0D%0A合作內容：%0D%0A預算範圍：%0D%0A期望檔期：" class="flex-1 text-center py-3.5 bg-black text-white rounded-full font-bold text-[15px]">立即合作</a>
+        <a href="#works" class="px-6 py-3.5 border border-gray-200 bg-white text-black rounded-full font-bold text-[15px] whitespace-nowrap">看案例</a>
+    </div>
+
+    <!-- 複製信箱提示 -->
+    <div id="toast" class="fixed left-1/2 -translate-x-1/2 bottom-24 md:bottom-10 z-[70] px-5 py-3 bg-black text-white text-sm font-bold rounded-full shadow-xl opacity-0 pointer-events-none transition-opacity duration-300">已複製信箱 ✓</div>
 
     <script>
         document.addEventListener("DOMContentLoaded", function() {
+            // 進場淡入動畫
             const observer = new IntersectionObserver((entries) => {
                 entries.forEach(entry => {
                     if (entry.isIntersecting) {
@@ -506,9 +619,34 @@
                     }
                 });
             }, { threshold: 0.1 });
-
             document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+
+            // 手機底部 CTA：捲過 Hero 後才出現，捲到聯絡區時隱藏
+            const cta = document.getElementById('mobileCta');
+            const contact = document.getElementById('contact');
+            window.addEventListener('scroll', () => {
+                const scrolled = window.scrollY > window.innerHeight * 0.6;
+                const atContact = contact && contact.getBoundingClientRect().top < window.innerHeight * 0.8;
+                cta.classList.toggle('visible', scrolled && !atContact);
+            }, { passive: true });
         });
+
+        // 一鍵複製信箱
+        function copyEmail(btn) {
+            const email = 'i60402@kimo.com';
+            const toast = document.getElementById('toast');
+            const done = () => {
+                toast.style.opacity = '1';
+                setTimeout(() => { toast.style.opacity = '0'; }, 1800);
+            };
+            if (navigator.clipboard) {
+                navigator.clipboard.writeText(email).then(done).catch(() => {
+                    prompt('複製信箱：', email);
+                });
+            } else {
+                prompt('複製信箱：', email);
+            }
+        }
     </script>
 </body>
 </html>
