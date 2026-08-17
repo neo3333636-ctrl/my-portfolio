@@ -5,12 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
     <meta name="theme-color" content="#0a0a0a">
     <title>Neo | 創作者合作提案 Media Kit — 短影音 × 品牌敘事</title>
-    <meta name="description" content="Neo 是專注短影音與質感生活敘事的內容創作者。合作品牌包含 Sony、Sudio、GravaStar 等，全平台累積 500 萬+ 觀看。擅長將產品自然融入真實生活情境，為品牌創造高互動的社群共鳴。">
+    <meta name="description" content="Neo 是專注短影音與質感生活敘事的內容創作者，同時創辦線下社群「陌生連結所」。合作品牌包含 Sony、Sudio、GravaStar、CUPETIT、Gogoout 等，全平台累積 700 萬+ 觀看。擅長將產品自然融入真實生活情境，為品牌創造高互動的社群共鳴。">
 
     <!-- Open Graph：品牌分享連結時顯示專業預覽 -->
     <meta property="og:type" content="website">
     <meta property="og:title" content="Neo | 創作者合作提案 — 用真實感敘事為品牌創造社群共鳴">
-    <meta property="og:description" content="短影音 × 質感生活敘事。已合作 Sony、Sudio、GravaStar 等品牌，全平台 500 萬+ 觀看。">
+    <meta property="og:description" content="短影音 × 質感生活敘事。已合作 Sony、Sudio、GravaStar、CUPETIT 等品牌，全平台 700 萬+ 觀看，並自營線下社群「陌生連結所」。">
     <meta property="og:image" content="cover-1.jpg">
     <meta name="twitter:card" content="summary_large_image">
 
@@ -31,15 +31,26 @@
         }
         
         /* 導覽列文字響應式調整 */
-        .nav-link { 
-            font-size: 14px; 
-            font-weight: 600; 
-            letter-spacing: 0.05em; 
-            transition: color 0.3s; 
+        .nav-link {
+            font-size: 14px;
+            font-weight: 600;
+            letter-spacing: 0.05em;
+            transition: color 0.3s;
+            white-space: nowrap;
         }
         @media (min-width: 1024px) {
             .nav-link { font-size: 16px; }
         }
+
+        /* 導覽列選單：五個項目，間距隨寬度放大，避免在 1024 擠成兩行 */
+        .nav-menu { display: none; align-items: center; gap: 22px; }
+        @media (min-width: 768px) { .nav-menu { display: flex; } }
+        @media (min-width: 1024px) { .nav-menu { gap: 34px; } }
+        @media (min-width: 1280px) { .nav-menu { gap: 40px; } }
+        .nav-social-label { white-space: nowrap; }
+        /* 社群圖示：1280 以上才夠位置，以下改由右側的手機版圖示負責 */
+        .nav-social { display: none; }
+        @media (min-width: 1280px) { .nav-social { display: flex; } }
         
         .gradient-text { 
             background: linear-gradient(135deg, #000 30%, #666 100%); 
@@ -217,6 +228,386 @@
             color: #111;
         }
 
+        /* 自有社群（陌生連結所）區塊
+           註：本頁的 tailwind.css 是預先產生的，只含原始版面用過的 class，
+           因此新區塊一律用自訂樣式，不依賴未編譯進去的 utility。 */
+        .project-grid {
+            display: grid;
+            gap: 56px;
+            align-items: center;
+            margin-bottom: 88px;
+        }
+        @media (min-width: 1024px) {
+            .project-grid { grid-template-columns: 1fr 1fr; gap: 96px; margin-bottom: 140px; }
+        }
+        .project-copy { order: 2; }
+        .project-visual { order: 1; }
+        @media (min-width: 1024px) {
+            .project-copy { order: 1; }
+            .project-visual { order: 2; }
+        }
+
+        .project-title {
+            font-size: clamp(28px, 5vw, 52px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            line-height: 1.32;
+            margin-bottom: 32px;
+        }
+        @media (min-width: 1024px) { .project-title { margin-bottom: 44px; } }
+
+        .project-text {
+            color: #6b7280;
+            font-weight: 300;
+            line-height: 1.9;
+            font-size: 15px;
+            margin-bottom: 24px;
+        }
+        @media (min-width: 1024px) { .project-text { font-size: 19px; margin-bottom: 30px; } }
+        .project-text strong { color: #111; font-weight: 700; }
+        .project-text.last { margin-bottom: 40px; }
+        @media (min-width: 1024px) { .project-text.last { margin-bottom: 56px; } }
+
+        /* 實績數字：證明這不是概念，是有人真的走進來的東西 */
+        .project-stats { display: flex; align-items: flex-start; margin-bottom: 40px; }
+        @media (min-width: 1024px) { .project-stats { margin-bottom: 52px; } }
+        .project-stat + .project-stat {
+            margin-left: 32px;
+            padding-left: 32px;
+            border-left: 1px solid #e5e7eb;
+        }
+        @media (min-width: 1024px) {
+            .project-stat + .project-stat { margin-left: 48px; padding-left: 48px; }
+        }
+        .project-stat .num {
+            display: block;
+            font-size: 40px;
+            font-weight: 700;
+            letter-spacing: -0.04em;
+            line-height: 1;
+            margin-bottom: 12px;
+        }
+        @media (min-width: 1024px) { .project-stat .num { font-size: 56px; } }
+        .project-stat .cap {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.18em;
+            color: #6b7280;
+        }
+        @media (min-width: 1024px) { .project-stat .cap { font-size: 12px; } }
+
+        .project-chips { display: flex; flex-wrap: wrap; gap: 10px; margin-bottom: 40px; }
+        @media (min-width: 1024px) { .project-chips { gap: 12px; margin-bottom: 56px; } }
+        .project-chip {
+            padding: 8px 16px;
+            background: #fff;
+            border: 1px solid #e5e7eb;
+            border-radius: 999px;
+            font-size: 12px;
+            font-weight: 700;
+            color: #4b5563;
+        }
+        @media (min-width: 1024px) { .project-chip { font-size: 14px; padding: 9px 18px; } }
+
+        .project-actions { display: flex; flex-direction: column; align-items: flex-start; gap: 18px; }
+        @media (min-width: 640px) { .project-actions { flex-direction: row; align-items: center; gap: 26px; } }
+
+        .project-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 12px;
+            padding: 16px 32px;
+            background: #000;
+            color: #fff;
+            border-radius: 999px;
+            font-weight: 700;
+            font-size: 15px;
+            box-shadow: 0 20px 40px rgba(0,0,0,0.12);
+            transition: transform 0.3s ease;
+        }
+        .project-cta:hover { transform: scale(1.05); }
+        .project-cta svg { width: 16px; height: 16px; flex: 0 0 auto; }
+
+        .project-link {
+            font-size: 14px;
+            font-weight: 700;
+            color: #6b7280;
+            border-bottom: 1px solid #d1d5db;
+            padding-bottom: 3px;
+            transition: color 0.3s, border-color 0.3s;
+        }
+        .project-link:hover { color: #000; border-color: #000; }
+
+        /* 品牌卡：用陌生連結所自己的識別（暖色 + 標誌），
+           刻意跟本站的黑白調性區隔，讀起來才像「另一個我做出來的品牌」 */
+        .project-plate {
+            position: relative;
+            border-radius: 32px;
+            overflow: hidden;
+            padding: 40px 32px;
+            background: #f5f0e8;
+            border: 1px solid #e2d8c8;
+            color: #2c2a27;
+            box-shadow: 0 30px 70px rgba(44,42,39,0.13);
+            aspect-ratio: 4/5;
+            display: flex;
+            flex-direction: column;
+        }
+        @media (min-width: 1024px) { .project-plate { border-radius: 48px; padding: 56px 52px; } }
+        .project-plate::before {
+            content: "";
+            position: absolute;
+            top: -28%;
+            right: -22%;
+            width: 75%;
+            height: 75%;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(232,201,154,0.6), transparent 70%);
+            pointer-events: none;
+        }
+        /* 放大淡化的標誌當底紋，讓卡面有層次、不是一片空白 */
+        .project-plate::after {
+            content: "";
+            position: absolute;
+            right: -10%;
+            bottom: -8%;
+            width: 62%;
+            height: 62%;
+            background: url("strangers-logo.png") center / contain no-repeat;
+            opacity: 0.1;
+            /* 往左上淡出，避免標誌方正的邊緣在卡面上留下一道直線 */
+            -webkit-mask-image: radial-gradient(circle at 78% 78%, #000 25%, transparent 72%);
+            mask-image: radial-gradient(circle at 78% 78%, #000 25%, transparent 72%);
+            pointer-events: none;
+        }
+
+        /* 標誌 + 字標的橫向鎖定組合 */
+        .plate-lockup { position: relative; z-index: 1; display: flex; align-items: center; gap: 14px; }
+        .plate-lockup img { width: 50px; height: 50px; flex: 0 0 auto; display: block; }
+        @media (min-width: 1024px) { .plate-lockup { gap: 18px; } .plate-lockup img { width: 66px; height: 66px; } }
+        .plate-mark .zh { display: block; font-size: 18px; font-weight: 700; letter-spacing: 0.06em; }
+        @media (min-width: 1024px) { .plate-mark .zh { font-size: 21px; } }
+        .plate-mark .en {
+            display: block;
+            font-size: 9px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.24em;
+            color: #8a7f72;
+            margin-top: 6px;
+        }
+
+        .plate-quote {
+            position: relative;
+            z-index: 1;
+            margin: auto 0;
+            font-size: clamp(26px, 3.9vw, 42px);
+            font-weight: 700;
+            line-height: 1.35;
+            letter-spacing: -0.01em;
+        }
+        .plate-foot {
+            position: relative;
+            z-index: 1;
+            margin-top: 26px;
+            padding-top: 20px;
+            border-top: 1px solid #ddd2c1;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            gap: 12px;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.22em;
+            color: #8a7f72;
+        }
+        .plate-foot .loc { color: #c17f4a; }
+        @media (max-width: 639px) {
+            .plate-foot { font-size: 9px; letter-spacing: 0.14em; }
+            .plate-foot .loc { display: none; }
+        }
+
+        .collab-head { text-align: center; margin-bottom: 48px; }
+        @media (min-width: 1024px) { .collab-head { margin-bottom: 80px; } }
+        .collab-head h4 {
+            font-size: clamp(24px, 3.6vw, 44px);
+            font-weight: 700;
+            letter-spacing: -0.02em;
+            margin-bottom: 20px;
+        }
+        .collab-head p {
+            color: #6b7280;
+            font-weight: 300;
+            line-height: 1.9;
+            font-size: 15px;
+            max-width: 720px;
+            margin: 0 auto;
+        }
+        @media (min-width: 1024px) { .collab-head p { font-size: 19px; } }
+
+        .collab-grid { display: grid; gap: 24px; }
+        @media (min-width: 768px) { .collab-grid { grid-template-columns: repeat(3, 1fr); gap: 30px; } }
+        .collab-card {
+            padding: 32px;
+            background: #fff;
+            border: 1px solid #f3f4f6;
+            border-radius: 32px;
+            transition: border-color 0.3s ease;
+        }
+        @media (min-width: 1024px) { .collab-card { padding: 40px; border-radius: 40px; } }
+        .collab-card:hover { border-color: #000; }
+        .collab-card .num {
+            display: block;
+            font-size: 10px;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.25em;
+            color: #9ca3af;
+            margin-bottom: 20px;
+        }
+        @media (min-width: 1024px) { .collab-card .num { font-size: 12px; margin-bottom: 28px; } }
+        .collab-card h5 { font-size: 20px; font-weight: 700; margin-bottom: 14px; }
+        @media (min-width: 1024px) { .collab-card h5 { font-size: 24px; } }
+        .collab-card p { color: #9ca3af; line-height: 1.8; font-size: 15px; }
+        @media (min-width: 1024px) { .collab-card p { font-size: 17px; } }
+
+        .deck-hint { font-size: 14px; color: #9ca3af; font-weight: 300; }
+
+        /* 精選案例：手機為錯落格線，桌機為傾斜疊牌（捲入畫面時散開） */
+        .deck {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 22px 14px;
+        }
+        .deck-card {
+            display: block;
+            position: relative;
+            min-width: 0;
+            max-width: 100%;
+            transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
+        }
+        .deck-card:nth-child(even) { margin-top: 34px; }
+
+        .deck-media {
+            aspect-ratio: 9/16;
+            border-radius: 18px;
+            overflow: hidden;
+            position: relative;
+            background: #eee;
+            box-shadow: 0 18px 40px rgba(0,0,0,0.10);
+            transition: box-shadow 0.6s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .deck-media img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            transition: transform 1.2s ease;
+        }
+        .deck-card:hover .deck-media img { transform: scale(1.06); }
+
+        .deck-label {
+            position: absolute;
+            left: 0; right: 0; bottom: 0;
+            padding: 42px 14px 14px;
+            background: linear-gradient(to top, rgba(0,0,0,0.8), rgba(0,0,0,0.32) 48%, transparent);
+            color: #fff;
+            pointer-events: none;
+        }
+        .deck-brand {
+            display: block;
+            font-size: 9px;
+            font-weight: 700;
+            letter-spacing: 0.2em;
+            text-transform: uppercase;
+            color: rgba(255,255,255,0.7);
+            margin-bottom: 4px;
+        }
+        .deck-title {
+            display: block;
+            font-size: 13px;
+            font-weight: 700;
+            line-height: 1.45;
+        }
+        .deck-play {
+            position: absolute;
+            top: 12px; right: 12px;
+            z-index: 2;
+            display: inline-flex;
+            align-items: center;
+            gap: 5px;
+            padding: 5px 11px;
+            border-radius: 999px;
+            background: rgba(255,255,255,0.94);
+            color: #111;
+            font-size: 10px;
+            font-weight: 700;
+            letter-spacing: 0.04em;
+            opacity: 0;
+            transform: translateY(-5px);
+            transition: opacity 0.4s ease, transform 0.4s ease;
+        }
+        .deck-card:hover .deck-play { opacity: 1; transform: translateY(0); }
+
+        /* 發牌動畫：從一疊散開成扇形 */
+        @keyframes deck-deal {
+            from { transform: translateX(calc((3 - var(--i)) * var(--step))) rotate(-5deg) scale(0.93); }
+        }
+
+        @media (min-width: 1024px) {
+            .deck {
+                --cw: 150px;
+                --step: 116px;
+                display: flex;
+                justify-content: center;
+                align-items: flex-start;
+                gap: 0;
+                padding: 24px 0 48px;
+            }
+            .deck-card {
+                flex: 0 0 auto;
+                width: var(--cw);
+                margin: 0 0 0 calc(var(--step) - var(--cw));
+                transform-origin: 50% 88%;
+                transform: rotate(var(--rot)) translateY(var(--dy));
+            }
+            .deck-card:first-child { margin-left: 0; }
+
+            /* 捲到之前：收成一疊 */
+            .deck:not(.active) .deck-card {
+                transform: translateX(calc((3 - var(--i)) * var(--step))) rotate(-5deg) scale(0.93);
+                transition: none;
+            }
+            /* 捲進畫面：依序發牌，animation 結束後交還給 transition 處理 hover */
+            .deck.active .deck-card {
+                animation: deck-deal 0.95s cubic-bezier(0.16, 1, 0.3, 1) backwards;
+                animation-delay: calc(var(--i) * 80ms);
+            }
+
+            .deck-media { border-radius: 20px; }
+            .deck-title { font-size: 12px; }
+            .deck-brand { font-size: 8px; margin-bottom: 3px; }
+            .deck-label { padding: 40px 30px 12px 12px; }
+            .deck-brand { letter-spacing: 0.14em; }
+
+            /* 滑過時：轉正、放大、浮起，其餘退到背景 */
+            .deck:hover .deck-card { filter: brightness(0.9) saturate(0.85); }
+            .deck.active .deck-card:hover {
+                transform: rotate(0deg) translateY(-26px) scale(1.14);
+                z-index: 30;
+                filter: none;
+            }
+            .deck-card:hover .deck-media { box-shadow: 0 40px 80px rgba(0,0,0,0.22); }
+        }
+        @media (min-width: 1280px) {
+            .deck { --cw: 190px; --step: 152px; }
+            .deck-media { border-radius: 22px; }
+            .deck-title { font-size: 14px; }
+            .deck-brand { font-size: 9px; margin-bottom: 4px; }
+            .deck-label { padding: 46px 34px 15px 15px; }
+        }
+
         /* 手機字級微調：標題不要太擠 */
         @media (max-width: 640px) {
             h1 { line-height: 1.3 !important; }
@@ -228,6 +619,10 @@
             .reveal { opacity: 1 !important; transform: none !important; }
             .bg-blob { animation: none; }
             * { scroll-behavior: auto !important; }
+            .deck.active .deck-card { animation: none; }
+            .deck:not(.active) .deck-card {
+                transform: rotate(var(--rot)) translateY(var(--dy));
+            }
         }
     </style>
 </head>
@@ -248,8 +643,8 @@
                 </div>
                 
                 <!-- 電腦版社群圖示 (手機版隱藏，改放右側) -->
-                <div class="hidden lg:flex items-center space-x-5 pl-8 border-l border-gray-100">
-                    <span class="text-[10px] uppercase tracking-widest text-gray-400 font-bold mr-2">Social Connect</span>
+                <div class="nav-social items-center space-x-5 pl-8 border-l border-gray-100">
+                    <span class="nav-social-label text-[10px] uppercase tracking-widest text-gray-400 font-bold mr-2">Social Connect</span>
                     <a href="https://www.instagram.com/333neo_hani?igsh=MXFreWtvZTRhczZqYQ%3D%3D&utm_source=qr" target="_blank" class="p-2.5 hover:bg-gray-100 rounded-full transition-all hover:scale-110">
                         <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>
                     </a>
@@ -279,9 +674,10 @@
                 </div>
 
                 <!-- 平板/電腦版文字選單 -->
-                <div class="hidden md:flex items-center space-x-10 lg:space-x-12">
+                <div class="nav-menu">
                     <a href="#audience" class="nav-link text-gray-400 hover:text-black transition-colors">數據分析</a>
                     <a href="#services" class="nav-link text-gray-400 hover:text-black transition-colors">合作項目</a>
+                    <a href="#project" class="nav-link text-gray-400 hover:text-black transition-colors">自有社群</a>
                     <a href="#works" class="nav-link text-gray-400 hover:text-black transition-colors">精選案例</a>
                     <a href="#contact" class="px-8 lg:px-10 py-3 bg-black text-white rounded-full text-[12px] font-bold hover:bg-gray-800 transition-all hover:scale-105 active:scale-95 tracking-widest">CONTACT</a>
                 </div>
@@ -331,6 +727,10 @@
                 <span class="brand-tag">GravaStar</span>
                 <span class="brand-tag">Sudio</span>
                 <span class="brand-tag">Topodesign</span>
+                <span class="brand-tag">CUPETIT</span>
+                <span class="brand-tag">Gogoout</span>
+                <span class="brand-tag">MAKANELIC</span>
+                <span class="brand-tag">萬國滷味</span>
             </div>
         </div>
     </section>
@@ -343,11 +743,11 @@
             <!-- 頂部：四個關鍵數字 -->
             <div class="grid grid-cols-2 md:grid-cols-4 gap-y-10 gap-x-6 lg:gap-12 mb-20 lg:mb-28 reveal">
                 <div class="text-center md:border-r border-gray-200/70">
-                    <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">50+</div>
+                    <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">60+</div>
                     <div class="text-[10px] md:text-[12px] tracking-widest text-gray-500 font-bold">品牌合作案例</div>
                 </div>
                 <div class="text-center md:border-r border-gray-200/70">
-                    <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">500萬+</div>
+                    <div class="text-3xl sm:text-4xl lg:text-6xl font-bold mb-2 lg:mb-3 tracking-tighter">700萬+</div>
                     <div class="text-[10px] md:text-[12px] tracking-widest text-gray-500 font-bold">全平台觀看量</div>
                 </div>
                 <div class="text-center md:border-r border-gray-200/70">
@@ -393,18 +793,18 @@
                 </div>
 
                 <div class="reveal delay-200">
-                    <h4 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10 leading-tight">高價值的精準社群</h4>
+                    <h4 class="text-3xl md:text-4xl lg:text-5xl font-bold mb-6 lg:mb-10 leading-tight">他們不是<br>滑過去就算的人</h4>
                     <p class="text-gray-500 text-[15px] sm:text-base lg:text-xl xl:text-2xl font-light leading-[1.8] mb-10 lg:mb-16">
-                        我的核心受眾主要分佈於具備高度購買力的青壯年族群，這群人對於「生活美學、數位產品、獨旅體驗」有著強烈的投資意願。男性受眾佔比顯著，對於 3C 硬體與質感單品的內容反饋尤為熱烈。
+                        看我內容的人，多半是二十五到三十四歲、自己決定要買什麼的一群。他們會為了一支耳機查三天資料，也會為了一家店排四十分鐘的隊。不喜歡被推銷，但東西如果是真的好，他們願意花時間，也願意花錢。
                     </p>
                     <div class="grid grid-cols-1 md:grid-cols-2 gap-6 lg:gap-8">
                         <div class="p-8 lg:p-10 border border-gray-100 rounded-[2rem] lg:rounded-[2.5rem] hover:border-black transition-colors bg-white">
-                            <p class="text-xl lg:text-2xl font-bold mb-3 lg:mb-4">科技愛好</p>
-                            <p class="text-[15px] md:text-base lg:text-lg text-gray-400 leading-[1.8]">追蹤最新硬體發布與數位工作流，重視產品的機能與美感並重。</p>
+                            <p class="text-xl lg:text-2xl font-bold mb-3 lg:mb-4">查很久才買</p>
+                            <p class="text-[15px] md:text-base lg:text-lg text-gray-400 leading-[1.8]">決定慢，但決定了就是真的想要。他們要的是理由，不是折扣。</p>
                         </div>
                         <div class="p-8 lg:p-10 border border-gray-100 rounded-[2rem] lg:rounded-[2.5rem] hover:border-black transition-colors bg-white">
-                            <p class="text-xl lg:text-2xl font-bold mb-3 lg:mb-4">質感玩家</p>
-                            <p class="text-[15px] md:text-base lg:text-lg text-gray-400 leading-[1.8]">追求卓越的生活品質，願意為卓越設計與品牌精神支付溢價。</p>
+                            <p class="text-xl lg:text-2xl font-bold mb-3 lg:mb-4">喜歡自己找路</p>
+                            <p class="text-[15px] md:text-base lg:text-lg text-gray-400 leading-[1.8]">對「大家都在用」沒興趣，對「你怎麼發現這個」很有興趣。</p>
                         </div>
                     </div>
                 </div>
@@ -464,54 +864,190 @@
         </div>
     </section>
 
-    <!-- 6. Featured Works -->
+    <!-- 5. Featured Works -->
     <section id="works" class="py-24 lg:py-32 bg-gray-50/50">
         <div class="max-w-7xl mx-auto px-6">
-            <div class="mb-12 lg:mb-20 reveal text-center lg:text-left">
+            <div class="mb-4 lg:mb-8 reveal text-center">
                 <h2 class="text-[10px] md:text-[13px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 lg:mb-6">Portfolio</h2>
-                <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight">精選案例展示</h3>
-            </div>
-            
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-8 lg:gap-10 mb-20 lg:mb-28">
-                <div class="hover-lift reveal" onclick="window.open('https://www.instagram.com/reel/DMWwv6OSSyv/', '_blank')">
-                    <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
-                        <img src="cover-2.jpg" alt="高質感開箱 - 刮鬍刀" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-lg lg:text-xl mb-1">高質感開箱 - 刮鬍刀</h4>
-                    <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Sony / Commercial</p>
-                </div>
-
-                <div class="hover-lift reveal delay-100" onclick="window.open('https://www.instagram.com/reel/DG5bAYSyNkl/', '_blank')">
-                    <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
-                        <img src="cover-3.jpg" alt="旅行產品介紹 - 旅行配件" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-lg lg:text-xl mb-1">旅行產品介紹 - 旅行配件</h4>
-                    <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Travel Blue / Review</p>
-                </div>
-
-                <div class="hover-lift reveal delay-200" onclick="window.open('https://www.instagram.com/reel/DG9qyaKyAFi/', '_blank')">
-                    <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
-                        <img src="cover-1.jpg" alt="秘境探索 - 線西沙灘" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-lg lg:text-xl mb-1">秘境探索 - 線西沙灘</h4>
-                    <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Content Creation</p>
-                </div>
-
-                <div class="hover-lift reveal delay-300" onclick="window.open('https://www.instagram.com/stories/highlights/18177508876325440/', '_blank')">
-                    <div class="video-card mb-4 lg:mb-6 shadow-xl">
-                        <span class="play-badge"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看精選</span>
-                        <img src="cover-5.jpg" alt="線下聚會：陌生人聚餐" loading="lazy" width="1080" height="1920" onerror="this.src='https://images.unsplash.com/photo-1511632765486-a01980e01a18?q=80&w=400&auto=format&fit=crop'">
-                    </div>
-                    <h4 class="font-bold text-lg lg:text-xl mb-1">線下聚會：陌生人聚餐</h4>
-                    <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.2em] font-bold">Community Event</p>
-                </div>
+                <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 lg:mb-6">精選案例展示</h3>
+                <p class="deck-hint">點任一張卡片，直接看原始影片</p>
             </div>
 
-            <!-- Full Library -->
-            <div class="reveal border-t border-gray-200 pt-16 lg:pt-24">
+            <div class="deck">
+                <a href="https://www.instagram.com/reel/DMWwv6OSSyv/" target="_blank" rel="noopener" class="deck-card" style="--i:0; --rot:-7.5deg; --dy:16px" aria-label="Sony 高質感開箱 — 刮鬍刀">
+                    <div class="deck-media">
+                        <img src="cover-2.jpg" alt="Sony 高質感開箱 — 刮鬍刀" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1503951914875-452162b0f3f1?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">Sony</span>
+                            <span class="deck-title">刮鬍刀開箱</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/reel/DG5bAYSyNkl/" target="_blank" rel="noopener" class="deck-card" style="--i:1; --rot:-5deg; --dy:8px" aria-label="Travel Blue 旅行產品介紹 — 旅行配件">
+                    <div class="deck-media">
+                        <img src="cover-3.jpg" alt="Travel Blue 旅行產品介紹 — 旅行配件" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1523275335684-37898b6baf30?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">Travel Blue</span>
+                            <span class="deck-title">旅行配件介紹</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/reel/DbvJjGbuurF/" target="_blank" rel="noopener" class="deck-card" style="--i:2; --rot:-2.5deg; --dy:2px" aria-label="CUPETIT 卡柏蒂精品甜點 中秋禮盒推薦">
+                    <div class="deck-media">
+                        <img src="cover-6.jpg" alt="CUPETIT 卡柏蒂精品甜點 中秋禮盒推薦" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1558961363-fa8fdf82db35?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">CUPETIT</span>
+                            <span class="deck-title">中秋禮盒推薦</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/reel/DZT5tuGRSu2/" target="_blank" rel="noopener" class="deck-card" style="--i:3; --rot:0deg; --dy:0px" aria-label="Gogoout 平台分享 — 租車">
+                    <div class="deck-media">
+                        <img src="cover-7.jpg" alt="Gogoout 平台分享 — 租車" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1449965408869-eaa3f722e40d?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">Gogoout</span>
+                            <span class="deck-title">租車平台分享</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/reel/DY61UwRvrnb/" target="_blank" rel="noopener" class="deck-card" style="--i:4; --rot:2.5deg; --dy:2px" aria-label="萬國滷味 美食分享 — 滷味">
+                    <div class="deck-media">
+                        <img src="cover-8.jpg" alt="萬國滷味 美食分享 — 滷味" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1552611052-33e04de081de?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">萬國滷味</span>
+                            <span class="deck-title">美食分享</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/p/DbP8lhwxVar/" target="_blank" rel="noopener" class="deck-card" style="--i:5; --rot:5deg; --dy:8px" aria-label="景點介紹 — 眠月線">
+                    <div class="deck-media">
+                        <img src="cover-9.jpg" alt="景點介紹 — 眠月線" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1441974231531-c6227db76b6e?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">個人作品</span>
+                            <span class="deck-title">眠月線</span>
+                        </div>
+                    </div>
+                </a>
+
+                <a href="https://www.instagram.com/reel/DG9qyaKyAFi/" target="_blank" rel="noopener" class="deck-card" style="--i:6; --rot:7.5deg; --dy:16px" aria-label="秘境探索 — 線西沙灘">
+                    <div class="deck-media">
+                        <img src="cover-1.jpg" alt="秘境探索 — 線西沙灘" loading="lazy" width="608" height="1080" onerror="this.src='https://images.unsplash.com/photo-1507525428034-b723cf961d3e?q=80&w=400&auto=format&fit=crop'">
+                        <span class="deck-play"><svg class="w-3 h-3" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z"/></svg>觀看影片</span>
+                        <div class="deck-label">
+                            <span class="deck-brand">個人作品</span>
+                            <span class="deck-title">線西沙灘</span>
+                        </div>
+                    </div>
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- 7. Own Project：陌生連結所 -->
+    <section id="project" class="pt-20 pb-24 lg:pt-28 lg:pb-32 border-t border-gray-100">
+        <div class="max-w-7xl mx-auto px-6">
+            <h2 class="text-[10px] md:text-[13px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-12 lg:mb-16 text-center">Own Project</h2>
+
+            <!-- 上半：這是我自己從零做出來的 -->
+            <div class="project-grid">
+                <div class="project-copy reveal">
+                    <h3 class="project-title">我不只拍別人的品牌，<br>也自己做了一個。</h3>
+
+                    <p class="project-text">
+                        <strong>陌生連結所 STRANGERS CONNECTING</strong> 是我從零開始建立的線下社群。我設計一系列讓陌生人自然靠近彼此的聚會——一起吃飯、散步、野餐，讓對話從共同經驗開始，而不是「你做什麼的」。
+                    </p>
+                    <p class="project-text last">
+                        品牌命名、活動企劃、聚會規範、網站建置到現場主持，都是我自己來。這代表我理解的不只是怎麼拍一支好看的影片，而是怎麼把一個概念，變成真的有人願意付費走進來的東西。
+                    </p>
+
+                    <div class="project-stats">
+                        <div class="project-stat">
+                            <span class="num">8</span>
+                            <span class="cap">場已舉辦</span>
+                        </div>
+                        <div class="project-stat">
+                            <span class="num">304</span>
+                            <span class="cap">人累積報名</span>
+                        </div>
+                    </div>
+
+                    <div class="project-chips">
+                        <span class="project-chip">專屬網站與品牌識別</span>
+                        <span class="project-chip">線上報名與付款系統</span>
+                        <span class="project-chip">主辦審核制</span>
+                        <span class="project-chip">聚會規範與回饋機制</span>
+                    </div>
+
+                    <div class="project-actions">
+                        <a href="https://strangersconnecting.com/" target="_blank" rel="noopener" class="project-cta">
+                            strangersconnecting.com
+                            <svg fill="none" stroke="currentColor" stroke-width="2.5" viewBox="0 0 24 24"><path stroke-linecap="round" stroke-linejoin="round" d="M7 17L17 7M17 7H8M17 7v9"/></svg>
+                        </a>
+                        <a href="https://www.instagram.com/stories/highlights/18177508876325440/" target="_blank" rel="noopener" class="project-link">看現場紀錄 ↗</a>
+                    </div>
+                </div>
+
+                <div class="project-visual reveal delay-200">
+                    <div class="project-plate">
+                        <div class="plate-lockup">
+                            <img src="strangers-logo.png" alt="陌生連結所 品牌標誌" width="66" height="66" loading="lazy">
+                            <div class="plate-mark">
+                                <span class="zh">陌生連結所</span>
+                                <span class="en">Strangers Connecting</span>
+                            </div>
+                        </div>
+                        <p class="plate-quote">把生活圈，<br>重新打開。</p>
+                        <div class="plate-foot">
+                            <span>Meet • Experience • Connect</span>
+                            <span class="loc">Taipei</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 下半：品牌可以怎麼走進來 -->
+            <div class="reveal">
+                <div class="collab-head">
+                    <h4>這也是一個品牌可以走進去的場域</h4>
+                    <p>除了短影音，我還能提供一個有真實參與者的線下現場。這是一般創作者合作案給不了的東西。</p>
+                </div>
+
+                <div class="collab-grid">
+                    <div class="collab-card">
+                        <span class="num">01 / Sponsorship</span>
+                        <h5>場次贊助與冠名</h5>
+                        <p>產品直接出現在真實的聚會現場。取得的是「有人在用」的畫面，不是棚裡擺拍出來的情境。</p>
+                    </div>
+                    <div class="collab-card">
+                        <span class="num">02 / Co-creation</span>
+                        <h5>主題聯名企劃</h5>
+                        <p>一起設計一場為品牌量身打造的聚會，讓品牌精神成為那一場的主題，而不只是背板上的 logo。</p>
+                    </div>
+                    <div class="collab-card">
+                        <span class="num">03 / Content</span>
+                        <h5>線下體驗 × 線上內容</h5>
+                        <p>活動當天的影像可以再製成短影音。一次合作，同時拿到實體活動與社群素材。</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- 8. Full Portfolio Library -->
+    <section id="library" class="py-24 lg:py-32 border-t border-gray-100 bg-gray-50/50">
+        <div class="max-w-7xl mx-auto px-6">
+            <div class="reveal">
                 <h3 class="text-[10px] lg:text-sm font-bold mb-12 lg:mb-20 text-center uppercase tracking-[0.4em] text-gray-400">Full Portfolio Library</h3>
                 <div class="grid md:grid-cols-3 gap-12 lg:gap-20 max-w-7xl mx-auto">
                     <div>
@@ -520,6 +1056,7 @@
                         </h4>
                         <div class="space-y-1">
                             <a href="https://www.instagram.com/reel/DNqEKGqy3yv/" target="_blank" class="other-work-link">旅行配件 (後背包) 合作</a>
+                            <a href="https://www.instagram.com/reel/DZM6ZZbvgAY/" target="_blank" class="other-work-link">創作者包包分享 (MAKANELIC)</a>
                             <a href="https://www.instagram.com/reel/DOuthhxkSx7/" target="_blank" class="other-work-link">充氣幫浦開箱體驗</a>
                             <a href="https://www.instagram.com/p/DPi20wekatV/" target="_blank" class="other-work-link">共享汽車平台合作紀錄</a>
                         </div>
@@ -549,7 +1086,7 @@
         </div>
     </section>
 
-    <!-- 7. Contact -->
+    <!-- 9. Contact -->
     <section id="contact" class="max-w-7xl mx-auto px-4 sm:px-6 mb-32 lg:mb-48 text-center reveal">
         <div class="glass-dark text-white p-12 sm:p-20 md:p-36 rounded-[3rem] md:rounded-[5rem] relative overflow-hidden shadow-2xl">
             <div class="relative z-10">
@@ -588,7 +1125,7 @@
     <!-- Footer -->
     <footer class="py-16 lg:py-20 border-t border-gray-100 text-center">
         <span class="text-3xl lg:text-4xl font-bold tracking-tighter mb-6 lg:mb-8 block">NEO.</span>
-        <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.5em] font-bold">2025 &copy; BRAND COLLABORATION PORTFOLIO</p>
+        <p class="text-[9px] md:text-[12px] text-gray-400 uppercase tracking-[0.5em] font-bold">2026 &copy; BRAND COLLABORATION PORTFOLIO</p>
     </footer>
 
     <!-- 手機底部固定 CTA bar -->
@@ -610,7 +1147,8 @@
                     }
                 });
             }, { threshold: 0.1 });
-            document.querySelectorAll('.reveal').forEach((el) => observer.observe(el));
+            // .deck 一併觀察：進入畫面時加上 active，觸發疊牌散開
+            document.querySelectorAll('.reveal, .deck').forEach((el) => observer.observe(el));
 
             // 手機底部 CTA：捲過 Hero 後才出現，捲到聯絡區時隱藏
             const cta = document.getElementById('mobileCta');
