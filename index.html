@@ -474,21 +474,38 @@
         @media (min-width: 1024px) { .collab-card p { font-size: 17px; } }
 
         .deck-hint { font-size: 14px; color: #9ca3af; font-weight: 300; }
+        /* 手機是橫向卡片列，要先講「可以滑」 */
+        @media (min-width: 1024px) { .hint-swipe { display: none; } }
 
-        /* 精選案例：手機為錯落格線，桌機為傾斜疊牌（捲入畫面時散開） */
+        /* 精選案例：手機為橫向滑動卡片列，桌機為傾斜疊牌（捲入畫面時散開）。
+           --bleed 是「section 左右內距 + 容器 px-6」的總和，
+           用負 margin 抵銷掉，卡片列才能滑到螢幕邊緣。 */
         .deck {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 22px 14px;
+            --bleed: 44px;
+            display: flex;
+            gap: 14px;
+            overflow-x: auto;
+            overscroll-behavior-x: contain;
+            scroll-snap-type: x mandatory;
+            scroll-padding-left: var(--bleed);
+            -webkit-overflow-scrolling: touch;
+            scrollbar-width: none;
+            margin-left: calc(-1 * var(--bleed));
+            margin-right: calc(-1 * var(--bleed));
+            padding: 4px var(--bleed) 12px;
         }
+        .deck::-webkit-scrollbar { display: none; }
+        @media (min-width: 641px) { .deck { --bleed: 48px; } }
+
         .deck-card {
             display: block;
             position: relative;
+            flex: 0 0 62vw;
+            max-width: 300px;
             min-width: 0;
-            max-width: 100%;
+            scroll-snap-align: start;
             transition: transform 0.7s cubic-bezier(0.16, 1, 0.3, 1), filter 0.5s ease;
         }
-        .deck-card:nth-child(even) { margin-top: 34px; }
 
         .deck-media {
             aspect-ratio: 9/16;
@@ -564,10 +581,17 @@
                 align-items: flex-start;
                 gap: 0;
                 padding: 24px 0 48px;
+                /* 關掉手機的橫向捲動，否則傾斜與 hover 放大的卡片會被裁掉 */
+                overflow: visible;
+                scroll-snap-type: none;
+                margin-left: 0;
+                margin-right: 0;
             }
             .deck-card {
                 flex: 0 0 auto;
                 width: var(--cw);
+                max-width: none;
+                scroll-snap-align: none;
                 margin: 0 0 0 calc(var(--step) - var(--cw));
                 transform-origin: 50% 88%;
                 transform: rotate(var(--rot)) translateY(var(--dy));
@@ -870,7 +894,7 @@
             <div class="mb-4 lg:mb-8 reveal text-center">
                 <h2 class="text-[10px] md:text-[13px] font-bold uppercase tracking-[0.3em] text-gray-400 mb-4 lg:mb-6">Portfolio</h2>
                 <h3 class="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight mb-4 lg:mb-6">精選案例展示</h3>
-                <p class="deck-hint">點任一張卡片，直接看原始影片</p>
+                <p class="deck-hint"><span class="hint-swipe">左右滑動瀏覽，</span>點卡片直接看原始影片</p>
             </div>
 
             <div class="deck">
