@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="zh-TW">
+<head>
+<meta charset="UTF-8">
+<style>
+  @font-face { font-family: 'X'; src: local('Inter'); }
+  * { margin:0; padding:0; box-sizing:border-box; }
+  html, body { width:1200px; height:630px; overflow:hidden; }
+  body {
+    font-family: 'Inter', -apple-system, 'SF Pro Display', 'Helvetica Neue', 'PingFang TC', 'Noto Sans TC', sans-serif;
+    background:#0a0a0a; color:#fff; position:relative;
+    -webkit-font-smoothing: antialiased;
+  }
+  .glow { position:absolute; inset:0;
+    background:
+      radial-gradient(900px 520px at 6% -12%, rgba(255,255,255,.10), transparent 62%),
+      radial-gradient(700px 500px at 96% 110%, rgba(255,255,255,.06), transparent 60%);
+  }
+  .grid { position:absolute; inset:0; opacity:.30;
+    background-image:
+      linear-gradient(rgba(255,255,255,.045) 1px, transparent 1px),
+      linear-gradient(90deg, rgba(255,255,255,.045) 1px, transparent 1px);
+    background-size: 60px 60px;
+    -webkit-mask-image: radial-gradient(900px 600px at 20% 40%, #000, transparent 75%);
+  }
+  .photo { position:absolute; right:0; top:0; width:470px; height:630px; }
+  .photo img { width:100%; height:100%; object-fit:cover; object-position:50% 24%; filter:contrast(1.04) saturate(.94); }
+  .photo::after { content:''; position:absolute; inset:0;
+    background: linear-gradient(90deg, #0a0a0a 0%, rgba(10,10,10,.92) 14%, rgba(10,10,10,.28) 42%, rgba(10,10,10,0) 68%),
+                linear-gradient(0deg, rgba(10,10,10,.55), transparent 45%);
+  }
+  .wrap { position:absolute; left:80px; top:0; width:680px; height:630px;
+          display:flex; flex-direction:column; justify-content:center; }
+
+  .pill { display:inline-flex; align-items:center; gap:9px; align-self:flex-start;
+          padding:9px 18px; border-radius:999px;
+          background:rgba(52,211,153,.10); border:1px solid rgba(52,211,153,.30);
+          color:#6ee7b7; font-size:15px; font-weight:700; letter-spacing:.06em; }
+  .dot { width:7px; height:7px; border-radius:50%; background:#34d399; box-shadow:0 0 12px #34d399; }
+
+  .name { font-size:118px; line-height:.92; font-weight:800; letter-spacing:-.055em;
+          margin-top:26px;
+          background:linear-gradient(160deg,#fff 30%, #9a9a9a 100%);
+          -webkit-background-clip:text; -webkit-text-fill-color:transparent; }
+  .role { margin-top:14px; font-size:21px; font-weight:600; letter-spacing:.02em; color:rgba(255,255,255,.55); }
+  .lead { margin-top:24px; font-size:30px; line-height:1.45; font-weight:700; letter-spacing:-.02em; color:rgba(255,255,255,.94); }
+
+  .rule { margin-top:30px; height:1px; width:600px; background:linear-gradient(90deg, rgba(255,255,255,.22), rgba(255,255,255,0)); }
+
+  .stats { margin-top:26px; display:flex; gap:44px; }
+  .stat .n { font-size:38px; font-weight:800; letter-spacing:-.035em; line-height:1; }
+  .stat .l { margin-top:9px; font-size:12px; font-weight:700; letter-spacing:.22em; color:rgba(255,255,255,.42); }
+
+  .brands { margin-top:30px; font-size:14px; font-weight:700; letter-spacing:.17em;
+            color:rgba(255,255,255,.36); }
+  .brands b { color:rgba(255,255,255,.30); font-weight:400; padding:0 6px; }
+
+  .corner { position:absolute; right:44px; bottom:38px; font-size:12px; font-weight:800;
+            letter-spacing:.3em; color:rgba(255,255,255,.42); text-shadow:0 2px 12px rgba(0,0,0,.8); }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <div class="grid"></div>
+  <div class="photo"><img src="../profile.jpg"></div>
+
+  <div class="wrap">
+    <span class="pill"><span class="dot"></span>目前開放品牌合作邀約</span>
+
+    <div class="name">NEO</div>
+    <div class="role">短影音創作者 ｜ 品牌敘事 ｜ 陌生連結所主理人</div>
+
+    <div class="lead">用真實感敘事，<br>為品牌創造深度的社群共鳴。</div>
+
+    <div class="rule"></div>
+
+    <div class="stats">
+      <div class="stat"><div class="n">700萬+</div><div class="l">全平台觀看</div></div>
+      <div class="stat"><div class="n">60+</div><div class="l">品牌合作案例</div></div>
+      <div class="stat"><div class="n">3</div><div class="l">IG / TT / YT</div></div>
+    </div>
+
+    <div class="brands">SONY<b>·</b>SUDIO<b>·</b>GRAVASTAR<b>·</b>CUPETIT<b>·</b>GOGOOUT</div>
+  </div>
+
+  <div class="corner">MEDIA KIT ／ 2026</div>
+</body>
+</html>
